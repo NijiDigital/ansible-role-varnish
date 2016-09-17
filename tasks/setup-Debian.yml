@@ -5,5 +5,5 @@
 
 - name: Install Varnish from package.
   apt:
-    deb: https://repo.varnish-cache.org/pkg/{{ varnish_version }}/varnish_{{ varnish_version }}-1_{{ ansible_architecture }}.deb
+    deb: https://repo.varnish-cache.org/pkg/{{ varnish_version }}/varnish_{{ varnish_version }}-1_amd64.deb
     state: present
