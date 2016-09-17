@@ -3,11 +3,7 @@
   apt_key: url=http://repo.varnish-cache.org/debian/GPG-key.txt state=present
   when: ansible_distribution_release != "xenial"
 
-- name: Add Varnish apt repository.
-  apt_repository:
-    repo: "deb http://repo.varnish-cache.org/{{ ansible_distribution | lower }}  {{ ansible_distribution_release }} varnish-{{ varnish_version }}"
+- name: Install Varnish from package.
+  apt:
+    deb: https://repo.varnish-cache.org/pkg/{{ varnish_version }}/varnish_{{ varnish_version }}-1_{{ ansible_architecture }}.deb
     state: present
-  when: ansible_distribution_release != "xenial"
-
-- name: Install Varnish.
-  apt: name="{{ varnish_package_name }}" state=installed
